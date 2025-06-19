@@ -257,10 +257,14 @@ class general_action_bar {
      */
     public function get_activities() {
         global $DB;
-        $sql = "SELECT lnd.coursemodule, lnd.course FROM {ltool_note_data} lnd
+
+        $sql = "SELECT lnd.coursemodule, lnd.course
+        FROM {ltool_note_data} lnd
         LEFT JOIN {course_modules} cm ON cm.id = lnd.coursemodule
-        WHERE cm.deletioninprogress = 0 AND lnd.course = :course AND lnd.coursemodule != 0
-        GROUP BY lnd.coursemodule, lnd.course";
+        WHERE cm.deletioninprogress = 0
+          AND lnd.course = :course
+          AND lnd.coursemodule != 0";
+
         $params = [
             'course' => $this->courseid,
         ];
@@ -269,6 +273,8 @@ class general_action_bar {
             $sql .= " AND cm.section = :sectionid";
             $params['sectionid'] = $this->sectionid;
         }
+
+        $sql .= " GROUP BY lnd.coursemodule, lnd.course";
 
         $records = $DB->get_records_sql($sql, $params);
         $data = [];
