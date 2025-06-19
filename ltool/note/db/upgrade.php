@@ -51,7 +51,7 @@ function xmldb_ltool_note_upgrade($oldversion) {
         upgrade_plugin_savepoint(true, 2022022600, 'ltool', 'note');
     }
 
-    if ($oldversion < 2025050600) {
+    if ($oldversion < 2025050700) {
         // Modify the note table to support itemtype and itemid.
         $table = new xmldb_table('ltool_note_data');
 
@@ -76,10 +76,10 @@ function xmldb_ltool_note_upgrade($oldversion) {
             $dbman->add_index($table, $index);
         }
         // Savepoint reached.
-        upgrade_plugin_savepoint(true, 2025050600, 'ltool', 'note');
+        upgrade_plugin_savepoint(true, 2025050700, 'ltool', 'note');
     }
 
-    if ($oldversion < 2025050701) {
+    if ($oldversion < 2025061800) {
         // Modify the note table to support itemtype and itemid.
         $table = new xmldb_table('ltool_note_data');
 
@@ -93,7 +93,7 @@ function xmldb_ltool_note_upgrade($oldversion) {
         $DB->execute("UPDATE {ltool_note_data} SET printstatus = 0");
 
          // Savepoint reached.
-        upgrade_plugin_savepoint(true, 2025050701, 'ltool', 'note');
+        upgrade_plugin_savepoint(true, 2025061800, 'ltool', 'note');
 
     }
 

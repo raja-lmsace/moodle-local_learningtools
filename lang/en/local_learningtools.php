@@ -142,6 +142,7 @@ $string['monthago'] = '{$a} month ago';
 $string['months'] = "Months";
 $string['monthsago'] = '{$a} months ago';
 $string['msgemailsent'] = "Successfully sent the mail to users";
+$string['mynotes'] = 'My Notes';
 $string['newnote'] = "Take notes";
 $string['noactivity'] = "No force activiy";
 $string['none'] = "None";

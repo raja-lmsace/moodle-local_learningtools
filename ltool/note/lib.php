@@ -547,6 +547,7 @@ function ltool_note_load_js_config() {
         'title' => $PAGE->title,
         'heading' => $PAGE->heading,
         'sesskey' => sesskey(),
+        'noteheading' => get_string('mynotes', 'local_learningtools'),
     ];
 
     // Add theme URL if needed.
