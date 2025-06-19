@@ -256,17 +256,19 @@ class general_action_bar {
      * @return array course activity selector records.
      */
     public function get_activities() {
-        global $DB;
+        global $DB, $USER;
 
         $sql = "SELECT lnd.coursemodule, lnd.course
         FROM {ltool_note_data} lnd
         LEFT JOIN {course_modules} cm ON cm.id = lnd.coursemodule
         WHERE cm.deletioninprogress = 0
           AND lnd.course = :course
-          AND lnd.coursemodule != 0";
+          AND lnd.coursemodule != 0
+          AND lnd.userid = :userid";
 
         $params = [
             'course' => $this->courseid,
+            'userid' => $USER->id,
         ];
 
         if (!empty($this->sectionid)) {
